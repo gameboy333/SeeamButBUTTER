@@ -1,0 +1,7 @@
+pandas
+ursina=6.0.0
+pygame
+PyQt6
+preferredsoundplayer
+Pillow
+Requests
