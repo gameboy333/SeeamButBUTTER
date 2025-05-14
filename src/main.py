@@ -1,10 +1,10 @@
-from PyQt6 import QtWidgets, QtGui, QtCore
+from PySide6 import QtWidgets, QtGui, QtCore
 import os
 import importlib
 import threading
 from pathlib import Path
 import json
-import preferredsoundplayer.preferredsoundplayer as psp
+#import preferredsoundplayer.preferredsoundplayer as psp
 from PIL import Image
 
 abspath = os.path.abspath(__file__)
@@ -18,12 +18,12 @@ def reduce_brightness(hex_color, factor=0.5):
     g = int(g * factor)
     b = int(b * factor)
     return f"#{r:02x}{g:02x}{b:02x}"
-importlib.import_module('seeamplugins.Theme Editor.theme')
+importlib.import_module('seeamplugins.Not Theme Editor.theme')
 # Theme settings
-theme = importlib.import_module("seeamplugins.Theme Editor.theme")
-BG_COLOR = theme.BG_COLOR
-BTN_COLOR = theme.BTN_COLOR
-TEXT_COLOR = theme.TEXT_COLOR
+theme = importlib.import_module("seeamplugins.Not Theme Editor.theme")
+BG_COLOR = "#d8db34"
+BTN_COLOR = "#d8db34"
+TEXT_COLOR = "#ffffff"
 TITLE_FONT = QtGui.QFont("Helvetica", 16, QtGui.QFont.Weight.Bold)
 BUTTON_FONT = QtGui.QFont("Helvetica", 14)
 LABEL_FONT = QtGui.QFont("Helvetica", 12)
@@ -43,7 +43,7 @@ plugins_dir = Path("seeamplugins")
 def run_script(script_name):
     def target():
         try:
-            psp.playsound('assets/launch.mp3')
+            #psp.playsound('assets/launch.mp3')
             os.system(f'python "{script_name}"')
         except Exception as e:
             print(f"Error running script {script_name}: {e}")
@@ -161,14 +161,14 @@ class MainWindow(QtWidgets.QMainWindow):
             if install_game_script.exists():
                 install_button = QtWidgets.QPushButton("Install More Games")
                 install_button.setFont(BUTTON_FONT)
-                install_button.setStyleSheet("background-color: #1abc9c; color: {TEXT_COLOR};")
+                install_button.setStyleSheet("background-color: #ffcc00; color: {TEXT_COLOR};")
                 install_button.clicked.connect(lambda: run_script(install_game_script))
                 self.sidebar_layout.addWidget(install_button)
 
             # Re-add the Refresh Games button
             refreshbtn = QtWidgets.QPushButton("Refresh games")
             refreshbtn.setFont(BUTTON_FONT)
-            refreshbtn.setStyleSheet("background-color: #1abc9c; color: {TEXT_COLOR};")
+            refreshbtn.setStyleSheet("background-color: #ffcc00; color: {TEXT_COLOR};")
             refreshbtn.clicked.connect(refreshgames)
             self.sidebar_layout.addWidget(refreshbtn)
 
@@ -179,14 +179,14 @@ class MainWindow(QtWidgets.QMainWindow):
         if install_game_script.exists():
             install_button = QtWidgets.QPushButton("Install More Games")
             install_button.setFont(BUTTON_FONT)
-            install_button.setStyleSheet("background-color: #1abc9c; color: {TEXT_COLOR};")
+            install_button.setStyleSheet("background-color: #ffcc00; color: {TEXT_COLOR};")
             install_button.clicked.connect(lambda: run_script(install_game_script))
             self.sidebar_layout.addWidget(install_button)
         
         if True:
             refreshbtn = QtWidgets.QPushButton("Refresh games")
             refreshbtn.setFont(BUTTON_FONT)
-            refreshbtn.setStyleSheet("background-color: #1abc9c; color: {TEXT_COLOR};")
+            refreshbtn.setStyleSheet("background-color: #ffcc00; color: {TEXT_COLOR};")
             refreshbtn.clicked.connect(refreshgames)
             self.sidebar_layout.addWidget(refreshbtn)
 

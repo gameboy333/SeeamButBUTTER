@@ -1,3 +1,0 @@
-bouncing balls simulation is a game by Gameboy's Python Games in collaboration with Ballsack Softwares.
-See my balls bounce in the air in a circle, forming multiple formations of triangluar proportions.
-Enjoy the vivid image of my balls. Extras coming maybe never.
